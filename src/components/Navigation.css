@@ -1,0 +1,120 @@
+/* Mobile First Bottom Nav */
+.navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  border-top: 1px solid var(--border-color);
+}
+
+.nav-brand {
+  display: none; /* Hide on mobile */
+}
+
+.nav-items {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.nav-button:hover {
+  color: var(--primary);
+}
+
+.nav-button.active {
+  color: var(--primary);
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Desktop Sidebar */
+@media (min-width: 768px) {
+  .navigation {
+    top: 0;
+    right: auto;
+    width: 250px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-top: none;
+    border-right: 1px solid var(--border-color);
+    padding: 24px 0;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 24px;
+    margin-bottom: 40px;
+    color: var(--primary-dark);
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-brand h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .nav-button {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+
+  .nav-button:hover {
+    background-color: var(--surface-hover);
+  }
+
+  .nav-button.active {
+    background-color: #fef3c7; /* Amber 50 */
+    color: var(--primary-dark);
+  }
+
+  .nav-icon {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+
+  .nav-label {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,195 @@
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top right, #fef3c7 0%, transparent 40%),
+              radial-gradient(circle at bottom left, #fffbeb 0%, var(--bg-color) 100%);
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+.logo-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.hexagon-shape {
+  width: 60px;
+  height: 60px;
+  background: var(--surface);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.login-header h1 {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.login-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.user-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.user-input:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+}
+
+.user-input::placeholder {
+  color: #9ca3af;
+}
+
+.error-message {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid #f87171;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* ── Add these rules to your existing LoginScreen.css ──────────────
+   They style the Login/Sign Up tab switcher and the bottom hint link.
+   Your existing rules are unchanged.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Login / Sign Up tab row */
+.auth-tabs-login {
+  display: flex;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+.auth-tab-login {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #6b7280;
+  transition: all 0.18s;
+  font-family: inherit;
+}
+
+.auth-tab-login:hover:not(.active) {
+  color: #374151;
+}
+
+.auth-tab-login.active {
+  background: #fff;
+  color: #d97706;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+/* Bottom "New to Fampiary?" hint */
+.login-switch-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  margin: 14px 0 0;
+}
+
+.login-switch-btn {
+  background: none;
+  border: none;
+  color: #d97706;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 3px;
+  font-family: inherit;
+}
+
+.login-switch-btn:hover {
+  color: #b45309;
+  text-decoration: underline;
+}

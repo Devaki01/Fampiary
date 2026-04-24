@@ -1,0 +1,157 @@
+.swarm-screen {
+  padding: 24px;
+  min-height: 100%;
+}
+
+.broadcast-card {
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 2px solid rgba(245, 158, 11, 0.2);
+}
+
+.broadcast-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.broadcast-icon {
+  color: var(--primary);
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.broadcast-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+
+.broadcast-subtitle {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.broadcast-input-wrapper {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.broadcast-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background: var(--bg-color);
+}
+
+.broadcast-input:focus {
+  border-color: var(--primary);
+}
+
+.broadcast-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.broadcast-button:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.broadcast-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.send-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+.signals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signal-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.signal-card:hover {
+  transform: translateX(4px);
+}
+
+.signal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.signal-city, .signal-time {
+  display: flex;
+  align-items: center;
+}
+
+.signal-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+}
+
+.signal-message {
+  font-size: 1rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.no-signals {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border-radius: 12px;
+}
+
+.swarm-location-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--primary-dark);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}

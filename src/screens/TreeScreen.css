@@ -1,0 +1,464 @@
+/* ── TreeScreen.css ─────────────────────────────────────────────────────────── */
+
+/* Screen layout */
+.tree-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: #fdfaf5;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────────── */
+.tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 18px;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  flex-shrink: 0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tree-header-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #d97706;
+  margin: 0;
+}
+
+.tree-header-sub {
+  font-size: 11px;
+  color: #9ca3af;
+  margin: 2px 0 0;
+}
+
+.tree-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ── Segmented branch filter ─────────────────────────────────────────────────── */
+.tree-seg {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tree-seg-btn {
+  padding: 5px 11px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tree-seg-btn:hover {
+  background: #f9fafb;
+}
+
+.tree-seg-btn.active {
+  background: #f59e0b;
+  color: #fff;
+}
+
+/* ── Icon buttons ────────────────────────────────────────────────────────────── */
+.tree-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 9px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  color: #374151;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tree-icon-btn:hover {
+  background: #f9fafb;
+}
+
+.tree-icon-btn.connect-active {
+  background: #eef2ff;
+  border-color: #6366f1;
+  color: #4f46e5;
+}
+
+.tree-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.tree-add-btn:hover {
+  background: #d97706;
+}
+
+/* ── Connect mode banner ─────────────────────────────────────────────────────── */
+.tree-connect-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  background: #eef2ff;
+  border-bottom: 1px solid #c7d2fe;
+  font-size: 13px;
+  color: #4338ca;
+  flex-shrink: 0;
+}
+
+.tree-connect-banner-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4338ca;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* ── Canvas wrapper ──────────────────────────────────────────────────────────── */
+.tree-canvas-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 40% 40%, #fef9ee 0%, #f8f8f5 70%);
+}
+
+.tree-canvas {
+  position: absolute;
+  inset: 0;
+  user-select: none;
+  touch-action: none;
+}
+
+.tree-canvas.grab   { cursor: grab; }
+.tree-canvas.cell   { cursor: cell; }
+.tree-canvas.cross  { cursor: crosshair; }
+
+.tree-canvas-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+/* ── SVG layer ───────────────────────────────────────────────────────────────── */
+.tree-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* ── Member cards ────────────────────────────────────────────────────────────── */
+.tree-card {
+  position: absolute;
+  width: 140px;
+  height: 76px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px 8px;
+  gap: 3px;
+  will-change: left, top;
+  overflow: visible;
+  transition: box-shadow 0.12s, border-color 0.12s;
+}
+
+.tree-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tree-card.is-self {
+  border-color: #f59e0b;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+.tree-card.is-connect-src {
+  border-color: #6366f1;
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.tree-card.is-maternal {
+  border-color: rgba(14, 165, 233, 0.22);
+}
+
+/* Top accent bar */
+.tree-card-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+}
+
+.tree-card-bar.paternal { background: #f59e0b; }
+.tree-card-bar.maternal { background: #0ea5e9; }
+
+/* Avatar circle */
+.tree-card-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Card text */
+.tree-card-info {
+  text-align: center;
+  width: 100%;
+}
+
+.tree-card-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-card-role {
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-card-role.paternal { color: rgba(217, 119, 6, 0.8); }
+.tree-card-role.maternal { color: rgba(14, 165, 233, 0.8); }
+
+/* "You" badge */
+.tree-self-badge {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  background: #f59e0b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* Card action buttons (shown below card on hover) */
+.tree-card-actions {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+.tree-card:hover .tree-card-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tree-card-action-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.12s;
+}
+
+.tree-card-action-btn:hover {
+  background: #f9fafb;
+}
+
+.tree-card-action-btn.danger {
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.tree-card-action-btn.danger:hover {
+  background: #fef2f2;
+}
+
+/* ── Zoom badge ──────────────────────────────────────────────────────────────── */
+.tree-zoom-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+/* ── Legend ──────────────────────────────────────────────────────────────────── */
+.tree-legend {
+  position: absolute;
+  bottom: 16px;
+  right: 62px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 11px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.tree-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tree-legend-dot.paternal { background: #f59e0b; }
+.tree-legend-dot.maternal { background: #0ea5e9; }
+.tree-legend-dot.spouse   { background: #a855f7; }
+
+/* ── Minimap ─────────────────────────────────────────────────────────────────── */
+.tree-minimap {
+  position: absolute;
+  bottom: 48px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* ── Confirm dialog overlay ──────────────────────────────────────────────────── */
+.tree-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.tree-dialog {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 24px 20px;
+  max-width: 310px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14);
+}
+
+.tree-dialog-icon {
+  margin-bottom: 10px;
+}
+
+.tree-dialog-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.tree-dialog-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d97706;
+  margin: 0 0 8px;
+}
+
+.tree-dialog-desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0 0 18px;
+  line-height: 1.5;
+}
+
+.tree-dialog-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tree-dialog-cancel {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  transition: background 0.12s;
+}
+
+.tree-dialog-cancel:hover {
+  background: #f9fafb;
+}
+
+.tree-dialog-delete {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.12s;
+}
+
+.tree-dialog-delete:hover {
+  background: #dc2626;
+}
